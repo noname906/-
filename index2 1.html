@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Magyar Tájak | 4. Csoport Projekt</title>
+    <meta name="description" content="Fedezd fel Magyarország legszebb kirándulóhelyeit. Lillafüred, Dobogókő és Tihany vár rád.">
+    <meta name="keywords" content="túrázás, Magyarország, kirándulás, természet, 4. csoport">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body { font-family: 'Poppins', sans-serif; background-color: #061a0f; color: #f1f5f9; }
+        
+        .glass-card {
+            background: rgba(15, 31, 22, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(6, 26, 15, 0.7), rgba(6, 26, 15, 0.8)), 
+                        url('https://images.unsplash.com/photo-1570654639102-bdd959dec0ee?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link:hover { color: #4ade80; border-bottom: 2px solid #4ade80; }
+        
+        .page-section { display: none; animation: fadeIn 0.4s ease-out; }
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nature-card:hover img { transform: scale(1.1); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 glass-card shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                <i class="fa-solid fa-mountain-sun text-emerald-500 text-3xl animate-pulse"></i>
+                <span class="text-2xl font-bold tracking-tighter">NATURA<span class="text-emerald-500">04</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#" onclick="showPage('home')" class="nav-link transition py-2">Főoldal</a>
+                <a href="#" onclick="showPage('places')" class="nav-link transition py-2">Helyszínek</a>
+                <a href="#" onclick="showPage('tips')" class="nav-link transition py-2">Túratippek</a>
+                <a href="#" onclick="showPage('gallery')" class="nav-link transition py-2">Galéria</a>
+            </nav>
+
+            <div class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="fa-solid fa-leaf text-emerald-500"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="home" class="page-section active">
+            <div class="hero-gradient h-[600px] flex items-center justify-center text-center px-4">
+                <div class="max-w-3xl">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white">Irány a <span class="text-emerald-400">Természet!</span></h1>
+                    <p class="text-xl text-gray-200 mb-8">Fedezd fel a 4. csoport túrakalauzát. Magyarország legszebb tájai és rejtett kincsei várnak rád.</p>
+                    <div class="flex justify-center gap-4">
+                        <button onclick="showPage('places')" class="bg-emerald-600 hover:bg-emerald-700 px-8 py-3 rounded-full font-bold transition transform hover:scale-105 shadow-lg shadow-emerald-500/20">Helyszínek megtekintése</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-4 text-emerald-400">Projekt Információk</h2>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><i class="fa-solid fa-compass text-emerald-500 mr-2"></i> <strong>Célkitűzés:</strong> Hazai túraútvonalak népszerűsítése digitális eszközökkel.</li>
+                        <li><i class="fa-solid fa-map-location-dot text-emerald-500 mr-2"></i> <strong>Szerkesztők:</strong> A 4. csoport lelkes természetjárói.</li>
+                        <li><i class="fa-solid fa-camera-retro text-emerald-500 mr-2"></i> <strong>Tartalom:</strong> Saját és jogtiszta természetfotók gyűjteménye.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400" class="rounded-2xl shadow-lg" alt="Erdő 1">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=400" class="rounded-2xl shadow-lg mt-8" alt="Tó 1">
+                </div>
+            </div>
+        </section>
+
+        <section id="places" class="page-section py-20 px-6">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Ajánlott Úticélok</h2>
+                <div class="h-1 w-20 bg-emerald-500 mx-auto"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="nature-card glass-card rounded-3xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80&w=500" class="w-full h-full object-cover transition duration-500" alt="Lillafüred">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-emerald-400">Lillafüred</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A Bükk-vidék egyik legszebb települése. A Palotaszálló és a vízesés mesébe illő hangulatot áraszt.</p>
+                        <div class="text-xs font-semibold text-emerald-300 bg-emerald-900/30 px-3 py-1 rounded-full inline-block">Kiemelt: Anna-barlang</div>
+                    </div>
+                </div>
+
+                <div class="nature-card glass-card rounded-3xl overflow-hidden group border-emerald-500/50 border">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=500" class="w-full h-full object-cover transition duration-500" alt="Dobogókő">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-emerald-400">Dobogókő</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A Dunakanyar legszebb kilátópontja. Sokan úgy tartják, itt található a "Föld szívcsakrája".</p>
+                        <div class="text-xs font-semibold text-emerald-300 bg-emerald-900/30 px-3 py-1 rounded-full inline-block">Kiemelt: Prédikálószék</div>
+                    </div>
+                </div>
+
+                <div class="nature-card glass-card rounded-3xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=500" class="w-full h-full object-cover transition duration-500" alt="Tihany">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-emerald-400">Tihany</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A Balaton ékköve. Az apátság mellett a levendulamezők és a Belső-tó nyújtanak felejthetetlen élményt.</p>
+                        <div class="text-xs font-semibold text-emerald-300 bg-emerald-900/30 px-3 py-1 rounded-full inline-block">Kiemelt: Levendula Ház</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="page-section py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12">Túrázók Tízparancsolata</h2>
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="bg-emerald-600 p-3 rounded-lg"><i class="fa-solid fa-boot-heeled"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold">Megfelelő lábbeli</h4>
+                            <p class="text-gray-400">Soha ne indulj el utcai cipőben. Egy jó túrabakancs védi a bokádat és megakadályozza az elcsúszást.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="bg-emerald-600 p-3 rounded-lg"><i class="fa-solid fa-bottle-water"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold">Hidratáció és energia</h4>
+                            <p class="text-gray-400">Legyen nálad legalább 1.5 liter víz és némi gyors energiát adó olajos mag vagy szőlőcukor.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                        <div class="bg-emerald-600 p-3 rounded-lg"><i class="fa-solid fa-map"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold">Tervezés</h4>
+                            <p class="text-gray-400">Mindig nézd meg az időjárás-jelentést és töltsd le az offline térképet (pl. Természetjáró app).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="page-section py-20 px-6">
+            <div class="max-w-7xl mx-auto mb-12">
+                <h2 class="text-4xl font-bold">Természetfotók</h2>
+                <p class="text-gray-400">A magyar erdők pillanatai</p>
+            </div>
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=400" class="w-full h-64 object-cover rounded-2xl hover:brightness-110 transition cursor-pointer" alt="Erdő">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400" class="w-full h-64 object-cover rounded-2xl hover:brightness-110 transition cursor-pointer" alt="Hegy">
+                <img src="https://images.unsplash.com/photo-1518173946687-a4c8a9ba332f?q=80&w=400" class="w-full h-64 object-cover rounded-2xl hover:brightness-110 transition cursor-pointer" alt="Patak">
+                <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=400" class="w-full h-64 object-cover rounded-2xl hover:brightness-110 transition cursor-pointer" alt="Ködös táj">
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 py-10 border-t border-emerald-900/30">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-gray-500 text-sm">
+                &copy; 2026 4. Csoport Projekt | Természetjáró Dokumentáció
+            </div>
+            <div class="flex space-x-6 text-xl text-emerald-500">
+                <i class="fa-brands fa-facebook hover:text-white cursor-pointer transition"></i>
+                <i class="fa-brands fa-instagram hover:text-white cursor-pointer transition"></i>
+                <i class="fa-solid fa-envelope hover:text-white cursor-pointer transition"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Szekciók váltása
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            // Menü linkek stílusának frissítése
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.classList.remove('text-emerald-400', 'border-b-2', 'border-emerald-400');
+                if(l.getAttribute('onclick').includes(pageId)) {
+                    l.classList.add('text-emerald-400', 'border-b-2', 'border-emerald-400');
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            alert("Mobil menü - Hamarosan elérhető a 4. csoport fejlesztésében!");
+        }
+    </script>
+</body>
+</html>
